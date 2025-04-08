@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import getImages from "../helpers/getImages";
+import GalleryItem from "./GalleryItem";
 
 const Gallery = () => {
   const [images, setImages] = useState();
@@ -29,10 +30,20 @@ const Gallery = () => {
       {/* Add a span element with class photographer */}
       {/* Add a span element with class description */}
       {/* Map the images array to generate a list of GalleryItem */}
+
       {/* Add a key attribute to the GalleryItem component and assign it the id of the image */}
       {/* Assign the imageUrl to the src of the img element */}
       {/* Assign the photographer to the text content of the photographer span in the following format: Photographer: <photographer here> */}
       {/* Assign the description to the text content of the description span in the following format: Description: <description here> */}
+
+      {images.map((image) => {
+        <GalleryItem
+          key={image.id}
+          imageUrl={image.imageUrl}
+          photographer={image.photographer}
+          description={image.description}
+        />;
+      })}
     </div>
   );
 };
